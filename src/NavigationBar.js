@@ -21,6 +21,18 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'row',
     },
   },
+  toolbar: {
+    display: 'flex',
+    flexDirection: 'column',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+  },
+  siteTitle: {
+    fontWeight: 'bold',
+    letterSpacing: 1.5,
+  },
 }));
 
 const menu = ['home', 'courses', 'sign up'];
@@ -30,8 +42,10 @@ const NavigationBar = () => {
 
   return (
     <Container>
-      <Toolbar>
-        <Typography>Mammoth Interactive</Typography>
+      <Toolbar className={classes.toolbar}>
+        <Typography component='h1' variant='h4' className={classes.siteTitle}>
+          Mammoth Interactive
+        </Typography>
         <Box className={classes.menuBox}>
           {menu.map(menuOption => (
             <Link
